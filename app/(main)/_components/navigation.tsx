@@ -9,7 +9,7 @@ import {
   Trash,
 } from "lucide-react";
 import { useSearch } from "@/hooks/use-search";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./user-item";
@@ -33,6 +33,7 @@ export const Navigation = () => {
   const search = useSearch();
   const settings = useSettings();
   const params = useParams();
+  const router = useRouter();
 
   const create = useMutation(api.documents.create);
 
@@ -127,7 +128,9 @@ export const Navigation = () => {
   };
 
   const handleCreate = () => {
-    const promise = create({ title: "Untitled" });
+    const promise = create({ title: "Untitled" }).then((documentId) => {
+      router.push(`/documents/${documentId}`);
+    });
 
     toast.promise(promise, {
       loading: "Creating a new note...",
