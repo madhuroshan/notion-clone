@@ -2,7 +2,7 @@
 
 import { useEdgeStore } from "@/lib/edgestore";
 
-import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
+import { BlockNoteEditor } from "@blocknote/core";
 import { useBlockNote, BlockNoteView } from "@blocknote/react";
 
 import "@blocknote/react/style.css";
