@@ -35,7 +35,7 @@ export const Heading = () => {
       {!isAuthenticated && !isLoading && (
         <SignInButton mode="modal">
           <Button>
-            Get Jotion Free <ArrowRight />
+            Get Rotion Free <ArrowRight />
           </Button>
         </SignInButton>
       )}
